@@ -10,4 +10,9 @@ struct Contact {
     let lastName: String
     let phoneNumber: String
     let email: String
+    
+    var fullName: String {
+        return
+    }
 }
+

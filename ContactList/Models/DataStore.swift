@@ -61,4 +61,26 @@ final class DataStore {
         "mystery.box42@aol.com"
     ]
     
+    func generateContacts() -> [Contact] {
+        let shuffledFirstNames = firstNames.shuffled()
+        let shuffledLastNames = lastNames.shuffled()
+        let shuffledPhoneNumbers = phoneNumbers.shuffled()
+        let shuffledEmails = emails.shuffled()
+        
+        var contacts: [Contact] = []
+        
+        let count = min(firstNames.count, lastNames.count, phoneNumbers.count, emails.count)
+        
+        for i in 0..<count {
+            let contact = Contact(
+                firstName: shuffledFirstNames[i],
+                lastName: shuffledLastNames[i],
+                phoneNumber: shuffledPhoneNumbers[i],
+                email: shuffledEmails[i]
+            )
+            contacts.append(contact)
+        }
+        
+        return contacts
+    }
 }
