@@ -15,6 +15,13 @@ class TabBarViewController: UITabBarController {
     }
     
     private func setupViewControllers() {
+        guard let contactListVC = viewControllers?.first as? ContactListViewController else { return }
+        guard let sectionsVC = viewControllers?.last as? SectionsViewController else { return }
+        
+        let contacts = Person.generateContacts()
+        contactListVC.contacts = contacts
+        sectionsVC.contacts = contacts
+
     }
     
     
